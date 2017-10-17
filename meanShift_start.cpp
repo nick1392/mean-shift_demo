@@ -144,31 +144,7 @@ int main( int argc, const char** argv )
         imshow( "meanShift Demo", image );
         imshow( "Histogram", histimg );
 
-        char c = (char)waitKey(10);
-        if( c == 27 )
-            break;
-        switch(c)
-        {
-        case 'b':
-            backprojMode = !backprojMode;
-            break;
-        case 'c':
-            trackObject = 0;
-            histimg = Scalar::all(0);
-            break;
-        case 'h':
-            showHist = !showHist;
-            if( !showHist )
-                destroyWindow( "Histogram" );
-            else
-                namedWindow( "Histogram", 1 );
-            break;
-        case 'p':
-            paused = !paused;
-            break;
-        default:
-            ;
-        }
+        waitKey(10);
     }
 
     return 0;
