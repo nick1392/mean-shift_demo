@@ -20,7 +20,7 @@ Point origin;
 Rect selection;
 int vmin = 10, vmax = 256, smin = 30;
 
-// User draws box around object to track. This triggers CAMShift to start tracking
+// User draws box around object to track. This triggers MeanShift to start tracking
 static void onMouse( int event, int x, int y, int, void* )
 {
     if( selectObject )
@@ -43,7 +43,7 @@ static void onMouse( int event, int x, int y, int, void* )
     case EVENT_LBUTTONUP:
         selectObject = false;
         if( selection.width > 0 && selection.height > 0 )
-            trackObject = -1;   // Set up CAMShift properties in main() loop
+            trackObject = -1;   // Set up MeanShift properties in main() loop
         break;
     }
 }
@@ -104,7 +104,7 @@ int main( int argc, const char** argv )
 
                 if( trackObject < 0 )
                 {
-                    // Object has been selected by user, set up CAMShift search properties once
+                    // Object has been selected by user, set up MeanShift search properties once
                     Mat roi(hue, selection), maskroi(mask, selection);
                     calcHist(&roi, 1, 0, maskroi, hist, 1, &hsize, &phranges);
                     normalize(hist, hist, 0, 255, NORM_MINMAX);
