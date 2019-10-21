@@ -1,10 +1,3 @@
-/*
- * main.cpp
- *
- *  Created on: Oct 16, 2017
- *      Author: mmlab
- */
-
 #include "opencv2/opencv.hpp"
 
 using namespace cv;
